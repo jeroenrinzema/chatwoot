@@ -1,0 +1,21 @@
+name: Brainpod waves-attend
+
+on:
+  push:
+    branches: ["develop", "brainpod/onboarding-waves-attend"]
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ["self-hosted","brainpod-local"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jeroenrinzema/build-action@v1
+        with:
+          pod: waves-attend
+          api-url: http://api.brainpod.localhost
+          registry: registry.brainpod.localhost

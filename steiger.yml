@@ -1,0 +1,11 @@
+insecureRegistries: ["registry.brainpod.localhost"]
+build:
+  chatwoot:
+    type: docker
+    context: .
+    dockerfile: docker/Dockerfile
+    args:
+      - "--cache-from"
+      - "type=gha,scope=chatwoot"
+      - "--cache-to"
+      - "type=gha,mode=max,scope=chatwoot"
