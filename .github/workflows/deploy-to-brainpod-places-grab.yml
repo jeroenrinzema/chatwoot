@@ -14,7 +14,7 @@ jobs:
     runs-on: ["self-hosted","brainpod-local"]
     steps:
       - uses: actions/checkout@v5
-      - uses: jeroenrinzema/build-action@v1
+      - uses: brainpodnl/actions/build@v1
         with:
           pod: places-grab
           api-url: http://api.brainpod.localhost
