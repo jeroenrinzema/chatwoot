@@ -1,0 +1,21 @@
+name: Brainpod points-search
+
+on:
+  push:
+    branches: ["develop", "brainpod/onboarding-points-search"]
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ["self-hosted","brainpod-local-a414f66b"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: brainpodnl/actions/build@v1
+        with:
+          pod: points-search
+          api-url: http://api.brainpod.localhost
+          registry: registry.brainpod.localhost
